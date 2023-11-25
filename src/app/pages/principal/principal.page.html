@@ -1,14 +1,52 @@
 <ion-header [translucent]="true">
   <ion-toolbar class="azul">
-    <ion-title>Cuidado Seniors</ion-title>
+    <ion-title>
+      <ion-img src="assets\images\logo.png" style="height: 150px;"></ion-img>
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding" [fullscreen]="true">
-  <ion-img src="assets/images/Enfermera.jpg"></ion-img>
-  <ion-header collapse="condense">
+  <ion-text color="primary">
+    <h1>PACIENTE</h1>
+  </ion-text>
+  <ion-img src="assets/images/cuidado-3.jpg"></ion-img>
+  <ion-accordion-group>
+    <ion-accordion value="first">
+      <ion-item slot="header" color="light">
+        <ion-label>Horas</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">Revisar horario de reserva</div>
+    </ion-accordion>
+    <ion-accordion value="second">
+      <ion-item slot="header" color="light">
+        <ion-label>Reservar</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">Cree una Reserva</div>
+    </ion-accordion>
+    <ion-accordion value="third">
+      <ion-item slot="header" color="light">
+        <ion-label>Eliminar</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">Eliminar Reserva</div>
+    </ion-accordion>
+  </ion-accordion-group>
+  <ion-datetime-button datetime="datetime"></ion-datetime-button>
+  <ion-modal [keepContentsMounted]="true">
+    <ng-template>
+      <ion-datetime id="datetime"></ion-datetime>
+    </ng-template>
+  </ion-modal>
+  <ion-img class="ion-padding" src="assets/images/enfermera-1.jpg"></ion-img>
+  <ion-img class="ion-padding" src="assets/images/enfermera-2.jpg"></ion-img>
+  <ion-img class="ion-padding" src="assets/images/enfermera-3.jpg"></ion-img>
+  <ion-button class="ion-margin-top" color="danger" expand="block">Emergencia</ion-button> 
+  <ion-text color="primary">
+    <h6>DERECHOS © RESERVADOS</h6>
+  </ion-text>
+   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">principal</ion-title>
     </ion-toolbar>
   </ion-header>
 </ion-content>
+

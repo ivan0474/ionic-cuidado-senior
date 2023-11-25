@@ -23,19 +23,48 @@ export class LoginPage implements OnInit {
   ngOnInit() {
   }
 
-  login() {
+  async login() {
     let that = this;
+  
+    const USER_URL = "http://localhost:3001/user/login"
+    const reqbody = {
+      "email": this.modeloUsuario,
+      "password": this.modeloPassword
+    }
+    
+    const res = await this.callAPI(USER_URL, JSON.stringify(reqbody))
 
-    const response =  this.api.login(this.modeloUsuario, this.modeloPassword)
-    if (this.modeloUsuario === "admin" && this.modeloPassword === "123") {
-        localStorage.setItem('idUsuario', JSON.stringify(this.modeloUsuario));
+    console.log("respuesta que quiero" + JSON.stringify(res))
+    if (res) {
+      localStorage.setItem('idUsuario', JSON.stringify(this.modeloUsuario));
       that.presentToast('inicio de sesion correcto', 'success');
       this.router.navigate(['/principal']);
     } else {
       that.presentToast('Nombre o contraseña incorrecto', 'danger');
     }
 };
-    //this.router.navigate(['editar'], parametros);
+
+    async callAPI(url: string, body: string): Promise<boolean> {
+      try {
+          const res = await fetch(url, {
+              method: "POST",
+              headers: {
+                  "Content-Type": "application/json"
+              },
+              body: body
+          });
+  
+          if (res.ok) {
+              return true;
+          } else {
+              console.error(`Error al realizar la solicitud. Código de estado: ${res.status}`);
+              return false;
+          }
+      } catch (error) {
+          console.error("Error al realizar la solicitud:", error);
+          return false;
+      }
+  }
 
   async presentToast(mensaje: string, color: string) {
     const toast = await this.toastController.create({

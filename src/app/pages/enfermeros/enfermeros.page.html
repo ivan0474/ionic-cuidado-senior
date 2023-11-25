@@ -1,0 +1,44 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="azul">
+    <ion-title>
+      <ion-img src="assets\images\logo.png" style="height: 150px;"></ion-img>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" [fullscreen]="true">
+  <ion-text color="primary">
+    <h1>ENFERMEROS</h1>
+  </ion-text>
+  <ion-img src="assets/images/Enfermera.jpg"></ion-img>
+  <ion-datetime-button datetime="datetime"></ion-datetime-button>
+  <ion-modal [keepContentsMounted]="true">
+    <ng-template>
+      <ion-datetime id="datetime"></ion-datetime>
+    </ng-template>
+  </ion-modal>
+  <ion-accordion-group>
+    <ion-accordion value="first">
+      <ion-item slot="header" color="light">
+        <ion-label>HORARIOS</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">Revisar Horarios</div>
+    </ion-accordion>
+    <ion-accordion value="second">
+      <ion-item slot="header" color="light">
+        <ion-label>CREAR DISPOSICIÓN</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">Crear horario </div>
+    </ion-accordion>
+    <ion-accordion value="third">
+      <ion-item slot="header" color="light">
+        <ion-label>ELIMINAR HORAS</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">Eliminar horario de pacientes</div>
+    </ion-accordion>
+  </ion-accordion-group>
+   <ion-header collapse="condense">
+    <ion-toolbar>
+    </ion-toolbar>
+  </ion-header>
+</ion-content>

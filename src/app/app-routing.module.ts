@@ -22,8 +22,9 @@ const routes: Routes = [
   },
 
   {
-    path: 'login',
-    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
+    path:'enfermeros',
+    redirectTo:'enfermeros',
+    pathMatch: 'full'
   },
 
   {
@@ -31,6 +32,12 @@ const routes: Routes = [
     redirectTo: 'e404',
     pathMatch: 'full'
   },
+
+  {
+    path: 'login',
+    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
+  },
+
   {
     path: 'principal',
     loadChildren: () => import('./pages/principal/principal.module').then( m => m.PrincipalPageModule),
@@ -40,6 +47,11 @@ const routes: Routes = [
     path: 'e404',
     loadChildren: () => import('./pages/e404/e404.module').then( m => m.E404PageModule)
   },
+  {
+    path: 'enfermeros',
+    loadChildren: () => import('./pages/enfermeros/enfermeros.module').then( m => m.EnfermerosPageModule)
+  },
+
 ];
 
 @NgModule({
