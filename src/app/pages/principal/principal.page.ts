@@ -19,8 +19,8 @@ export class PrincipalPage implements OnInit {
     if (localStorage.getItem('idUsuario') === null) {
       this.presentToast('Debes ingresar a tu sesión', 'warning');
       this.router.navigate(['/login']);
+    }
   }
-}
 
   async presentToast(mensaje: string, color: string) {
     const toast = await this.toastController.create({
@@ -30,4 +30,19 @@ export class PrincipalPage implements OnInit {
       color: color,
     });
   }
+
+  perfil(){
+    this.router.navigate(['/perfil'])
+  }
+
+  agendar(){
+    this.router.navigate(['/agendar'])
+  }
+  
+  cierre(){
+
+    this.router.navigate(['inicio'])
+
+  }
+
 }

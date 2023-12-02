@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./enfermeros.page.scss'],
 })
 export class EnfermerosPage implements OnInit {
+  
 
   constructor() { }
 
   ngOnInit() {
   }
-
+enfermo(){
+  
+}
 }

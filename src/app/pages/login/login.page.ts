@@ -11,7 +11,7 @@ export class LoginPage implements OnInit {
   
   modeloPassword: string="";
   modeloUsuario: string="";
-
+  rolId:number=0;
   
   constructor(private router: Router,
     private toastController: ToastController
@@ -31,34 +31,36 @@ export class LoginPage implements OnInit {
       "email": this.modeloUsuario,
       "password": this.modeloPassword
     }
-    
-    const res = await this.callAPI(USER_URL, JSON.stringify(reqbody))
+
+    const res:any = await this.callAPI(USER_URL, JSON.stringify(reqbody), "POST")
 
     console.log("respuesta que quiero" + JSON.stringify(res))
-    if (res) {
-      localStorage.setItem('idUsuario', JSON.stringify(this.modeloUsuario));
-      that.presentToast('inicio de sesion correcto', 'success');
-      this.router.navigate(['/principal']);
-    } else {
+    if (!res) {
       that.presentToast('Nombre o contraseña incorrecto', 'danger');
-    }
+    } else {
+      localStorage.setItem('idUsuario', JSON.stringify(this.modeloUsuario));
+      localStorage.setItem('rolId', JSON.stringify(res.rolId));
+      localStorage.setItem('idPaciente', JSON.stringify(res.userId));
+      that.presentToast('inicio de sesion correcto', 'success');
+      this.direccion(res.rolId)
+    } 
 };
 
-    async callAPI(url: string, body: string): Promise<boolean> {
+    async callAPI(url: string, body: string, method: string): Promise<boolean> {
       try {
-          const res = await fetch(url, {
-              method: "POST",
-              headers: {
-                  "Content-Type": "application/json"
-              },
-              body: body
-          });
+          const res: any = await (await fetch(url, {
+            method: method,
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: body
+          })).json();
   
-          if (res.ok) {
-              return true;
-          } else {
-              console.error(`Error al realizar la solicitud. Código de estado: ${res.status}`);
+          if (res.message) { 
+            console.error(`Error al realizar la solicitud. Código de estado: ${res.status}`);
               return false;
+          } else {
+              return res;
           }
       } catch (error) {
           console.error("Error al realizar la solicitud:", error);
@@ -75,6 +77,18 @@ export class LoginPage implements OnInit {
     });
 
     await toast.present();
+  }
+
+  direccion(rolId:number){
+    if(rolId === 1){
+      this.router.navigate(["/enfermeros"])
+    }
+    else if (rolId === 2){
+      this.router.navigate(["/principal"])
+    }
+    else if (rolId === 3){
+      this.router.navigate(["/administrador"]) 
+    }
   }
 }
 

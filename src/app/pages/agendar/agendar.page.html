@@ -1,0 +1,51 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="azul">
+    <ion-title>
+      <ion-img src="assets\images\logo.png" style="height: 150px;"></ion-img>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-title class="ion-margin-top">Agendar Cita</ion-title>
+  <ion-list>
+    <ion-item>
+      <ion-label>Plan de Servicio</ion-label>
+      <ion-select [(ngModel)]="modeloPlan" placeholder="Selecciona un plan de servicio">
+        <ion-select-option value="Autovalente">Autovalente</ion-select-option>
+        <ion-select-option value="No valente">No valente</ion-select-option>
+        <ion-select-option value="Semi valente">Semi valente</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Hora inicio</ion-label>
+      <ion-input type="time" [(ngModel)]="modeloHoraini"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input [(ngModel)]="modeloDescripcion" label="Descripción" labelPlacement="floating" placeholder="Agregue una nota"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Hora fin</ion-label>
+      <ion-input type="time" [(ngModel)]="modeloHorafin"></ion-input>
+    </ion-item>
+  </ion-list>
+  <ion-button (click)="agendar()" class="ion-padding boton azul" expand="block" >Agendar Cita</ion-button>  
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>AGENDAR</ion-card-title>
+      <ion-card-subtitle>Agendar Cita</ion-card-subtitle>
+    </ion-card-header>  
+    <ion-card-content>
+      Agenda tu cita en este sitio con toda seguridadn nos comprometemos a mantener la absoluta confidencialidad, para así mantener la confianza y el prestigio de nuestra empresa.
+    </ion-card-content>
+    <ion-button (click)="reserva()" class="azul" fill="clear">Volver</ion-button>
+    </ion-card>
+  <ion-text class="ion-margin-top center" color="primary">
+    <h6>Derechos © Reservados</h6>
+  </ion-text>
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">agendar</ion-title>
+    </ion-toolbar>
+  </ion-header>
+</ion-content>

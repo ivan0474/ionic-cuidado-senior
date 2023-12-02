@@ -6,11 +6,11 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding" [fullscreen]="true">  
-   <ion-text>
-    <h1 class="letra">PACIENTE</h1>
+<ion-content [fullscreen]="true">
+  <ion-text>
+    <h1 class="letra">Administrador</h1>
   </ion-text>
-  <ion-img src="assets/images/cuidado-3.jpg"></ion-img>
+  <ion-img src="assets\images\Enfermera de ancianos.jpg"></ion-img>
 
   <ion-segment value="buttons">
     <ion-segment-button value="default" routerLink="/perfil">
@@ -19,18 +19,28 @@
     <ion-segment-button value="default" routerLink="/agendar">
       <ion-label>Agendar Cita</ion-label>
     </ion-segment-button>    
+  </ion-segment> 
+  <ion-segment value="buttons">
+    <ion-segment-button value="default" routerLink="/enfermero">
+      <ion-label>Enfermero</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="default" routerLink="/citas">
+      <ion-label>Citas</ion-label>
+    </ion-segment-button>    
   </ion-segment>  
+
   <ion-card>
     <ion-card-header>
       <ion-card-title>PACIENTE</ion-card-title>
       <ion-card-subtitle>Usuario Paciente</ion-card-subtitle>
-    </ion-card-header>
+     </ion-card-header>
   
-    <ion-card-content>
+     <ion-card-content>
       Nos agrada mantener el contacto con nuestros pacientes, estamos preocupados de dar los mejores servicios para mantener la confianza y disposición hacia ustedes.
-    </ion-card-content>  
-    <ion-button (click)="cierre()" class="azul" fill="clear">Cerrar</ion-button>  
-  </ion-card>
+     </ion-card-content>  
+     <ion-button (click)="adclose()" class="azul" fill="clear">Cerrar</ion-button>  
+    </ion-card>
+
   <ion-text color="primary">
     <h6>Derechos © Reservados</h6>
   </ion-text>

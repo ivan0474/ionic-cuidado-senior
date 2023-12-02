@@ -1,0 +1,58 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="azul">
+    <ion-title>
+      <ion-img src="assets\images\logo.png" style="height: 150px;"></ion-img>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-title class="ion-padding">Perfil Usuario</ion-title>
+  <ion-list>
+    <ion-item>
+      <ion-input label="Nombre" labelPlacement="floating" placeholder="" value={{name}} readonly></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label="Edad" labelPlacement="floating" placeholder="" value={{age}} readonly></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label="Numero de Telefono" labelPlacement="floating" placeholder="" value={{phone}} readonly></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label="Apellido" labelPlacement="floating" placeholder="" value={{lastName}} readonly></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label="Rut" labelPlacement="floating" placeholder="" value={{rut}} readonly></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label="Email" labelPlacement="floating" placeholder="" value={{email}} readonly></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label="Genero" labelPlacement="floating" placeholder="" value={{gender}} readonly></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label="Fecha Nacimiento" labelPlacement="floating" placeholder="" value={{date}} readonly></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label="Dirección" labelPlacement="floating" placeholder="" value={{address}} readonly></ion-input>
+    </ion-item>
+  </ion-list>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>PERFIL</ion-card-title>
+      <ion-card-subtitle>Perfil de Usuario</ion-card-subtitle>
+    </ion-card-header>  
+    <ion-card-content>
+      Encuentre aquí sus datos los cuales estan protegidos y cuentan con toda discreción necesaria para resguardar la información.
+    </ion-card-content>  
+    <ion-button class="azul"(click)="perfil()" fill="clear">Volver</ion-button>
+    </ion-card>
+  <ion-text color="primary">
+    <h6>Derechos © Reservados</h6>
+  </ion-text>
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">perfil</ion-title>
+    </ion-toolbar>
+  </ion-header>
+</ion-content>
